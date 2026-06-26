@@ -4,8 +4,7 @@ function abrirDetalheEvento(ev) {
   telaAnterior = document.querySelector(".tela.ativa")?.id || "tela-eventos";
 
   // banner
-  document.getElementById("detalhe-icon").innerHTML =
-    `<i class="ti ${ev.icone}" aria-hidden="true"></i>`;
+  document.getElementById("detalhe-icon").innerHTML = renderIcon(ev.icone || "calendar");
   document.getElementById("detalhe-banner").style.background = ev.temInscricao
     ? "linear-gradient(135deg, #b8c8dc, #8aacc8)"
     : "linear-gradient(135deg, #C8D8E8, #a8c0d8)";
@@ -16,23 +15,23 @@ function abrirDetalheEvento(ev) {
     <div class="detail-header">
       <div class="event-tag">${ev.categoria}</div>
       <button class="btn-heart ${salvo ? "salvo" : ""}" data-salvar="${ev.id}" aria-label="Salvar evento">
-        <i class="ti ti-heart" aria-hidden="true"></i>
-        <i class="ti ti-heart-filled" aria-hidden="true"></i>
+        ${renderIcon("heart", "heart-icon")}
+        ${renderIcon("heartFilled", "heart-filled-icon")}
       </button>
     </div>
 
     <div class="detail-title">${ev.titulo}</div>
 
     <div class="detail-info-row">
-      <i class="ti ti-calendar" aria-hidden="true"></i>
+      ${renderIcon("calendar", "detail-info-icon")}
       <span>${ev.data} · ${ev.horario}</span>
     </div>
     <div class="detail-info-row">
-      <i class="ti ti-map-pin" aria-hidden="true"></i>
+      ${renderIcon("mapPin", "detail-info-icon")}
       <span>${ev.local}</span>
     </div>
     <div class="detail-info-row">
-      <i class="ti ti-user" aria-hidden="true"></i>
+      ${renderIcon("user", "detail-info-icon")}
       <span>${ev.palestrante}</span>
     </div>
 
@@ -48,19 +47,19 @@ function abrirDetalheEvento(ev) {
       </div>
       <div class="vagas-bar"><div class="vagas-fill" style="width:60%"></div></div>
       <button class="btn-sympla" id="btn-sympla-link">
-        <i class="ti ti-external-link" aria-hidden="true"></i>
+        ${renderIcon("externalLink", "btn-icon")}
         Inscrever-se via Sympla
       </button>
       <div class="sympla-note">* abre o site da Sympla no navegador</div>
     ` : `
       <div class="badge-no-inscricao">
-        <i class="ti ti-circle-check" aria-hidden="true"></i>
+        ${renderIcon("checkCircle", "btn-icon")}
         Não é necessária inscrição prévia
       </div>
     `}
 
     <button class="btn-save-detalhe ${salvo ? "salvo" : ""}" id="btn-save-detalhe" data-salvar="${ev.id}">
-      <i class="ti ${salvo ? "ti-heart-filled" : "ti-heart"}" aria-hidden="true"></i>
+      ${renderIcon(salvo ? "heartFilled" : "heart", "btn-icon")}
       ${salvo ? "Salvo na agenda" : "Salvar na agenda"}
     </button>
   `;
@@ -86,7 +85,7 @@ function atualizarBtnSalvarDetalhe(id) {
   const salvo = eventoEstaSalvo(id);
   btn.className = `btn-save-detalhe ${salvo ? "salvo" : ""}`;
   btn.innerHTML = `
-    <i class="ti ${salvo ? "ti-heart-filled" : "ti-heart"}" aria-hidden="true"></i>
+    ${renderIcon(salvo ? "heartFilled" : "heart", "btn-icon")}
     ${salvo ? "Salvo na agenda" : "Salvar na agenda"}
   `;
 }

@@ -13,7 +13,7 @@ const eventos = [
     temInscricao: false,
     urlSympla: null,
     destaque: true,
-    icone: "ti-code"
+    icone: "code"
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const eventos = [
     temInscricao: true,
     urlSympla: "https://www.sympla.com.br",
     destaque: false,
-    icone: "ti-brain"
+    icone: "brain"
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const eventos = [
     temInscricao: true,
     urlSympla: "https://www.sympla.com.br",
     destaque: false,
-    icone: "ti-trophy"
+    icone: "trophy"
   }
 ];
 

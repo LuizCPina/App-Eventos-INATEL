@@ -33,7 +33,7 @@ function renderizarSalvos() {
   if (salvos.length === 0) {
     container.innerHTML = `
       <div class="estado-vazio">
-        <i class="ti ti-heart" aria-hidden="true"></i>
+        ${renderIcon("heart")}
         <p>Você ainda não salvou nenhum evento.<br>Toque no coração de um evento para guardá-lo aqui.</p>
       </div>
     `;
@@ -41,8 +41,10 @@ function renderizarSalvos() {
   }
 
   container.innerHTML = `<div class="section-label">Eventos salvos</div>` +
-    salvos.map(ev => `
-      <div class="saved-card" data-id="${ev.id}">
+    salvos.map(ev => {
+      const categoriaClasse = `categoria-${(ev.categoria || "geral").toLowerCase()}`;
+      return `
+      <div class="saved-card ${categoriaClasse}" data-id="${ev.id}">
         <div class="saved-card-date">
           <div class="day">${ev.dia}</div>
           <div class="month">${ev.mes}</div>
@@ -51,19 +53,20 @@ function renderizarSalvos() {
           <div class="tag">${ev.categoria}</div>
           <div class="title">${ev.titulo}</div>
           <div class="meta">
-            <i class="ti ti-clock" aria-hidden="true"></i> ${ev.horario} · ${ev.local}
+            ${renderIcon("clock", "event-info-icon")} ${ev.horario} · ${ev.local}
           </div>
           <div class="meta ${ev.temInscricao ? "sympla" : ""}">
-            <i class="ti ${ev.temInscricao ? "ti-external-link" : "ti-circle-check"}" aria-hidden="true"></i>
+            ${renderIcon(ev.temInscricao ? "externalLink" : "checkCircle", "event-info-icon")}
             ${ev.temInscricao ? "inscrição via Sympla" : "sem inscrição"}
           </div>
         </div>
         <button class="btn-heart salvo" data-salvar="${ev.id}" aria-label="Remover dos salvos">
-          <i class="ti ti-heart" aria-hidden="true"></i>
-          <i class="ti ti-heart-filled" aria-hidden="true"></i>
+          ${renderIcon("heart", "heart-icon")}
+          ${renderIcon("heartFilled", "heart-filled-icon")}
         </button>
       </div>
-    `).join("");
+    `;
+    }).join("");
 }
 
 function atualizarContadores() {

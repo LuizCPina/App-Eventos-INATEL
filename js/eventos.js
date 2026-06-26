@@ -7,24 +7,25 @@ function badgeInscricao(ev) {
 
 function criarCardDestaque(ev) {
   const salvo = eventoEstaSalvo(ev.id) ? "salvo" : "";
+  const categoriaClasse = `categoria-${(ev.categoria || "geral").toLowerCase()}`;
   return `
-    <div class="event-card" data-id="${ev.id}">
+    <div class="event-card ${categoriaClasse}" data-id="${ev.id}">
       <div class="event-banner">
-        <div class="event-icon"><i class="ti ${ev.icone}" aria-hidden="true"></i></div>
+        <div class="event-icon">${renderIcon(ev.icone || "calendar")}</div>
       </div>
       <div class="event-body">
         <div>
           <div class="event-tag">${ev.categoria}</div>
           <div class="event-title">${ev.titulo}</div>
           <div class="event-meta">
-            <span><i class="ti ti-calendar" aria-hidden="true"></i> ${ev.data}</span>
-            <span><i class="ti ti-map-pin" aria-hidden="true"></i> ${ev.local}</span>
-            <span><i class="ti ti-info-circle" aria-hidden="true"></i> ${badgeInscricao(ev)}</span>
+            <span>${renderIcon("calendar", "event-info-icon")} ${ev.data}</span>
+            <span>${renderIcon("mapPin", "event-info-icon")} ${ev.local}</span>
+            <span>${renderIcon("info", "event-info-icon")} ${badgeInscricao(ev)}</span>
           </div>
         </div>
         <button class="btn-heart ${salvo}" data-salvar="${ev.id}" aria-label="Salvar evento">
-          <i class="ti ti-heart" aria-hidden="true"></i>
-          <i class="ti ti-heart-filled" aria-hidden="true"></i>
+          ${renderIcon("heart", "heart-icon")}
+          ${renderIcon("heartFilled", "heart-filled-icon")}
         </button>
       </div>
     </div>
@@ -33,27 +34,29 @@ function criarCardDestaque(ev) {
 
 function criarCardCompacto(ev) {
   const salvo = eventoEstaSalvo(ev.id) ? "salvo" : "";
+  const categoriaClasse = `categoria-${(ev.categoria || "geral").toLowerCase()}`;
   return `
-    <div class="event-card-sm" data-id="${ev.id}">
+    <div class="event-card-sm ${categoriaClasse}" data-id="${ev.id}">
       <div class="event-card-sm-info">
         <div class="tag">${ev.categoria}</div>
         <div class="title">${ev.titulo}</div>
         <div class="meta">
-          <i class="ti ti-calendar" aria-hidden="true"></i>
+          ${renderIcon("calendar", "event-info-icon")}
           ${ev.data} · ${ev.local} · ${badgeInscricao(ev)}
         </div>
       </div>
       <button class="btn-heart ${salvo}" data-salvar="${ev.id}" aria-label="Salvar evento">
-        <i class="ti ti-heart" aria-hidden="true"></i>
-        <i class="ti ti-heart-filled" aria-hidden="true"></i>
+        ${renderIcon("heart", "heart-icon")}
+        ${renderIcon("heartFilled", "heart-filled-icon")}
       </button>
     </div>
   `;
 }
 
 function criarLinhaEvento(ev) {
+  const categoriaClasse = `categoria-${(ev.categoria || "geral").toLowerCase()}`;
   return `
-    <div class="event-row" data-id="${ev.id}">
+    <div class="event-row ${categoriaClasse}" data-id="${ev.id}">
       <div class="event-row-left">
         <div class="tag">${ev.categoria}</div>
         <div class="title">${ev.titulo}</div>
@@ -84,7 +87,7 @@ function renderizarListaEventos() {
   if (filtrados.length === 0) {
     container.innerHTML = `
       <div class="estado-vazio">
-        <i class="ti ti-calendar-off" aria-hidden="true"></i>
+        ${renderIcon("calendarOff")}
         <p>Nenhum evento encontrado para esse filtro.</p>
       </div>
     `;

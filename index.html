@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App Inatel — Eventos</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/inicio.css">
   <link rel="stylesheet" href="css/eventos.css">
@@ -26,19 +25,19 @@
             <div class="hero-name">Pedro Alves</div>
           </div>
           <div class="hero-actions">
-            <i class="ti ti-bell" aria-hidden="true"></i>
+            <span class="icon" data-icon="bell" aria-hidden="true"></span>
             <div class="hero-avatar">PA</div>
           </div>
         </div>
         <div class="hero-card">
           <div class="hero-card-icon">
-            <i class="ti ti-calendar-event" aria-hidden="true"></i>
+            <span class="icon" data-icon="calendar" aria-hidden="true"></span>
           </div>
           <div class="hero-card-text">
             <div class="hero-card-label">próximo evento salvo</div>
             <div class="hero-card-title">Workshop: Dev Mobile</div>
             <div class="hero-card-meta">
-              <i class="ti ti-clock" aria-hidden="true"></i> hoje · 14h · Lab 3
+              <span class="icon" data-icon="clock" aria-hidden="true"></span> hoje · 14h · Lab 3
             </div>
           </div>
         </div>
@@ -46,14 +45,21 @@
 
       <div class="section-label"><span>acesso rápido</span></div>
 
+      <div class="ferramenta-link-row">
+        <a class="ferramenta-link" href="landing.html">
+          <span class="icon" data-icon="book" aria-hidden="true"></span>
+          <span>Conheça a Ferramenta</span>
+        </a>
+      </div>
+
       <div class="quick-grid">
         <button class="quick-card" data-nav="tela-eventos">
-          <div class="quick-card-icon"><i class="ti ti-calendar-event" aria-hidden="true"></i></div>
+          <div class="quick-card-icon"><span class="icon" data-icon="calendar" aria-hidden="true"></span></div>
           <div class="quick-card-title">Eventos</div>
           <div class="quick-card-sub" id="contador-eventos">3 esta semana</div>
         </button>
         <button class="quick-card" data-nav="tela-salvos">
-          <div class="quick-card-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+          <div class="quick-card-icon"><span class="icon" data-icon="heart" aria-hidden="true"></span></div>
           <div class="quick-card-title">Salvos</div>
           <div class="quick-card-sub" id="contador-salvos">2 eventos</div>
         </button>
@@ -68,16 +74,16 @@
 
       <nav class="bottom-nav">
         <button class="nav-item ativo" data-nav="tela-inicio">
-          <i class="ti ti-home" aria-hidden="true"></i>
+          <span class="icon" data-icon="home" aria-hidden="true"></span>
           <span class="nav-dot"></span>
           <span>início</span>
         </button>
         <button class="nav-item" data-nav="tela-eventos">
-          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span class="icon" data-icon="calendar" aria-hidden="true"></span>
           <span>eventos</span>
         </button>
         <button class="nav-item" data-nav="tela-salvos">
-          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span class="icon" data-icon="heart" aria-hidden="true"></span>
           <span>salvos</span>
         </button>
       </nav>
@@ -90,7 +96,7 @@
       <div class="topbar">
         <div class="topbar-title">Eventos</div>
         <div class="search">
-          <i class="ti ti-search" aria-hidden="true"></i>
+          <span class="icon" data-icon="search" aria-hidden="true"></span>
           <input type="text" id="campo-busca" placeholder="buscar eventos...">
         </div>
       </div>
@@ -106,16 +112,16 @@
 
       <nav class="bottom-nav">
         <button class="nav-item" data-nav="tela-inicio">
-          <i class="ti ti-home" aria-hidden="true"></i>
+          <span class="icon" data-icon="home" aria-hidden="true"></span>
           <span>início</span>
         </button>
         <button class="nav-item ativo" data-nav="tela-eventos">
-          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span class="icon" data-icon="calendar" aria-hidden="true"></span>
           <span class="nav-dot"></span>
           <span>eventos</span>
         </button>
         <button class="nav-item" data-nav="tela-salvos">
-          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span class="icon" data-icon="heart" aria-hidden="true"></span>
           <span>salvos</span>
         </button>
       </nav>
@@ -134,19 +140,33 @@
 
       <nav class="bottom-nav">
         <button class="nav-item" data-nav="tela-inicio">
-          <i class="ti ti-home" aria-hidden="true"></i>
+          <span class="icon" data-icon="home" aria-hidden="true"></span>
           <span>início</span>
         </button>
         <button class="nav-item" data-nav="tela-eventos">
-          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span class="icon" data-icon="calendar" aria-hidden="true"></span>
           <span>eventos</span>
         </button>
         <button class="nav-item ativo" data-nav="tela-salvos">
-          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span class="icon" data-icon="heart" aria-hidden="true"></span>
           <span class="nav-dot"></span>
           <span>salvos</span>
         </button>
       </nav>
+    </section>
+
+    <!-- ============FERRAMENTA============ -->
+    <section id="tela-ferramenta" class="tela">
+      <div class="status-bar"><span>9:42</span><span>●●● 100%</span></div>
+
+      <div class="topbar-detail">
+        <button class="btn-back" id="btn-voltar-ferramenta" aria-label="Voltar">
+          <span class="icon" data-icon="arrowLeft" aria-hidden="true"></span>
+        </button>
+        <div class="topbar-detail-title">Conheça a Ferramenta</div>
+      </div>
+
+      <div class="detail-body ferramenta-body" id="ferramenta-content"></div>
     </section>
 
     <!-- ============DETALHE============ -->
@@ -155,14 +175,14 @@
 
       <div class="topbar-detail">
         <button class="btn-back" id="btn-voltar" aria-label="Voltar">
-          <i class="ti ti-arrow-left" aria-hidden="true"></i>
+          <span class="icon" data-icon="arrowLeft" aria-hidden="true"></span>
         </button>
         <div class="topbar-detail-title">Detalhe do evento</div>
       </div>
 
       <div class="hero-banner" id="detalhe-banner">
         <div class="hero-icon" id="detalhe-icon">
-          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span class="icon" data-icon="calendar" aria-hidden="true"></span>
         </div>
       </div>
 
@@ -170,27 +190,29 @@
 
       <nav class="bottom-nav">
         <button class="nav-item" data-nav="tela-inicio">
-          <i class="ti ti-home" aria-hidden="true"></i>
+          <span class="icon" data-icon="home" aria-hidden="true"></span>
           <span>início</span>
         </button>
         <button class="nav-item ativo" data-nav="tela-eventos">
-          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span class="icon" data-icon="calendar" aria-hidden="true"></span>
           <span class="nav-dot"></span>
           <span>eventos</span>
         </button>
         <button class="nav-item" data-nav="tela-salvos">
-          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span class="icon" data-icon="heart" aria-hidden="true"></span>
           <span>salvos</span>
         </button>
       </nav>
     </section>
   </div>
 
+  <script src="js/icons.js"></script>
   <script src="js/dados.js"></script>
   <script src="js/navegacao.js"></script>
   <script src="js/eventos.js"></script>
   <script src="js/salvos.js"></script>
   <script src="js/detalhe.js"></script>
+  <script src="js/ferramenta.js"></script>
   <script src="js/main.js"></script>
 
 </body>

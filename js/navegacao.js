@@ -9,6 +9,7 @@ function irParaTela(idTela) {
   // re-renderiza telas que dependem de estado dinâmico
   if (idTela === "tela-salvos")  renderizarSalvos();
   if (idTela === "tela-inicio")  renderizarEmBreve();
+  if (idTela === "tela-ferramenta")  renderTelaFerramenta();
 }
 
 // delega cliques em qualquer elemento com data-nav

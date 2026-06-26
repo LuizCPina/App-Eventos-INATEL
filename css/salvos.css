@@ -8,6 +8,9 @@
   cursor: pointer;
   transition: box-shadow 0.15s;
 }
+.saved-card.categoria-workshop { background: #f7fbff; }
+.saved-card.categoria-palestra { background: #fffaf6; }
+.saved-card.categoria-hackathon { background: #f8fbf7; }
 .saved-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
 
 .saved-card-date {

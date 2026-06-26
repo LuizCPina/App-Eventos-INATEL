@@ -7,7 +7,7 @@
   align-items: center;
   gap: 9px;
 }
-.search .ti-search { font-size: 16px; color: rgba(255,255,255,0.75); }
+.search .icon { width: 16px; height: 16px; color: rgba(255,255,255,0.75); }
 .search input {
   background: transparent;
   border: none;
@@ -52,6 +52,12 @@
   cursor: pointer;
   transition: box-shadow 0.15s;
 }
+.event-card.categoria-workshop { background: #f7fbff; }
+.event-card.categoria-palestra { background: #fffaf6; }
+.event-card.categoria-hackathon { background: #f8fbf7; }
+.event-card-sm.categoria-workshop { background: #f7fbff; }
+.event-card-sm.categoria-palestra { background: #fffaf6; }
+.event-card-sm.categoria-hackathon { background: #f8fbf7; }
 .event-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
 
 .event-banner {
@@ -65,7 +71,7 @@
   background: var(--azul-inatel);
   display: flex; align-items: center; justify-content: center;
 }
-.event-icon .ti { font-size: 21px; color: #fff; }
+.event-icon .icon { width: 21px; height: 21px; color: #fff; }
 
 .event-body {
   padding: 12px 14px;
@@ -81,6 +87,7 @@
   font-size: 11.5px; color: var(--texto-sec);
 }
 .event-meta span { display: flex; align-items: center; gap: 4px; }
+.event-info-icon { width: 15px; height: 15px; }
 
 /* ── Card compacto ── */
 .event-card-sm {
