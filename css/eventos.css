@@ -1,0 +1,110 @@
+/* ── Barra de busca ── */
+.search {
+  background: rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  padding: 9px 13px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.search .ti-search { font-size: 16px; color: rgba(255,255,255,0.75); }
+.search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 13.5px;
+  width: 100%;
+  font-family: inherit;
+}
+.search input::placeholder { color: rgba(255,255,255,0.6); }
+
+/* ── Chips de filtro ── */
+.chips {
+  display: flex;
+  gap: 9px;
+  padding: 14px 18px 6px;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+.chip {
+  font-size: 12.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--azul-inatel);
+  color: var(--azul-inatel);
+  white-space: nowrap;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.chip.ativo       { background: var(--azul-inatel); color: #fff; }
+.chip:hover:not(.ativo) { background: var(--azul-claro); }
+
+/* ── Card destaque ── */
+.event-card {
+  margin: 0 14px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+.event-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+.event-banner {
+  height: 80px;
+  background: var(--azul-medio);
+  display: flex; align-items: center; justify-content: center;
+}
+.event-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--azul-inatel);
+  display: flex; align-items: center; justify-content: center;
+}
+.event-icon .ti { font-size: 21px; color: #fff; }
+
+.event-body {
+  padding: 12px 14px;
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 8px;
+}
+.event-title {
+  font-size: 14px; font-weight: 600; color: #1a1a1a;
+  margin-bottom: 7px; line-height: 1.35;
+}
+.event-meta {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  font-size: 11.5px; color: var(--texto-sec);
+}
+.event-meta span { display: flex; align-items: center; gap: 4px; }
+
+/* ── Card compacto ── */
+.event-card-sm {
+  margin: 0 14px 10px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 11px 14px;
+  background: #fff;
+  display: flex; justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+.event-card-sm:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+.event-card-sm-info .tag {
+  font-size: 11px; background: var(--azul-claro); color: var(--azul-inatel);
+  border-radius: 4px; padding: 2px 9px; display: inline-block;
+  margin-bottom: 5px; font-weight: 600;
+}
+.event-card-sm-info .title {
+  font-size: 13.5px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px;
+}
+.event-card-sm-info .meta {
+  font-size: 11.5px; color: var(--texto-sec);
+  display: flex; align-items: center; gap: 4px;
+}

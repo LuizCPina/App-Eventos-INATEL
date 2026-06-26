@@ -1,0 +1,44 @@
+.saved-card {
+  margin: 0 14px 10px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  background: #fff;
+  display: flex; align-items: flex-start; gap: 12px;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+.saved-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+.saved-card-date {
+  background: var(--azul-claro);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.saved-card-date .day {
+  font-size: 17px; font-weight: 700;
+  color: var(--azul-inatel); line-height: 1;
+}
+.saved-card-date .month {
+  font-size: 10px; color: var(--azul-inatel);
+  text-transform: uppercase; font-weight: 600;
+}
+
+.saved-card-info { flex: 1; }
+.saved-card-info .tag {
+  font-size: 10.5px; background: var(--azul-claro); color: var(--azul-inatel);
+  border-radius: 4px; padding: 2px 8px; display: inline-block;
+  margin-bottom: 4px; font-weight: 600;
+}
+.saved-card-info .title {
+  font-size: 13.5px; font-weight: 600; color: #1a1a1a; margin-bottom: 3px;
+}
+.saved-card-info .meta {
+  font-size: 11.5px; color: var(--texto-sec);
+  display: flex; align-items: center; gap: 4px; margin-top: 2px;
+}
+.saved-card-info .meta.sympla {
+  color: var(--azul-inatel); font-weight: 500;
+}

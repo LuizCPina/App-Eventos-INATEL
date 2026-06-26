@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f3f3f1;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  min-height: 100vh;
+}
+
+:root {
+  --azul-inatel:    #1A3A5C;
+  --azul-claro:     #E8EEF5;
+  --azul-medio:     #C8D8E8;
+  --texto-sec:      #6b6b6b;
+  --texto-ter:      #9a9a9a;
+  --borda:          #e3e3e3;
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      14px;
+}
+
+/* ── Phone frame ── */
+.phone-frame {
+  width: 360px;
+  height: 720px;
+  background: #fff;
+  border-radius: 36px;
+  border: 2px solid #1f1f1f;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+
+/* ── Telas ── */
+.tela {
+  display: none;
+  flex-direction: column;
+  height: 720px;
+}
+.tela.ativa {
+  display: flex;
+}
+
+/* ── Status bar ── */
+.status-bar {
+  background: var(--azul-inatel);
+  padding: 12px 22px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.status-bar span {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ── Topbar padrão (eventos, salvos, perfil) ── */
+.topbar {
+  background: var(--azul-inatel);
+  padding: 14px 18px 16px;
+  flex-shrink: 0;
+}
+.topbar-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.topbar-sub {
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--texto-sec);
+  padding: 14px 18px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+.section-label a {
+  font-size: 11.5px;
+  color: var(--azul-inatel);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ── Event tag badge ── */
+.event-tag {
+  font-size: 11px;
+  background: var(--azul-claro);
+  color: var(--azul-inatel);
+  border-radius: 4px;
+  padding: 2px 9px;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+/* ── Botão coração ── */
+.btn-heart {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--texto-ter);
+  padding: 2px;
+  line-height: 1;
+  transition: color 0.15s, transform 0.1s;
+  flex-shrink: 0;
+}
+.btn-heart.salvo         { color: #e0455f; }
+.btn-heart:active        { transform: scale(0.82); }
+.btn-heart .ti-heart-filled { display: none; }
+.btn-heart.salvo .ti-heart         { display: none; }
+.btn-heart.salvo .ti-heart-filled  { display: inline; }
+
+/* ── Estado vazio ── */
+.estado-vazio {
+  margin: 24px 18px;
+  text-align: center;
+  color: var(--texto-ter);
+  padding: 30px 16px;
+  border: 1px dashed var(--borda);
+  border-radius: var(--radius-lg);
+}
+.estado-vazio .ti {
+  font-size: 32px;
+  margin-bottom: 10px;
+  display: block;
+}
+.estado-vazio p {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* ── Perfil placeholder ── */
+.perfil-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  color: var(--texto-ter);
+}
+.perfil-placeholder .ti { font-size: 48px; margin-bottom: 14px; }
+.perfil-placeholder p   { font-size: 12.5px; line-height: 1.5; }
+
+/* ── Bottom nav ── */
+.bottom-nav {
+  border-top: 1px solid var(--borda);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 18px;
+  background: #fff;
+  flex-shrink: 0;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  color: var(--texto-ter);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 4px 8px;
+}
+.nav-item .ti  { font-size: 21px; }
+.nav-item.ativo { color: var(--azul-inatel); }
+.nav-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--azul-inatel);
+  margin-top: -2px;
+}
+
+/* ── Áreas de conteúdo scrolláveis ── */
+#resultado-eventos,
+#lista-salvos,
+#lista-em-breve,
+#detalhe-body {
+  flex: 1;
+  overflow-y: auto;
+}
