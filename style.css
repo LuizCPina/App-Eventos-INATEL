@@ -1,0 +1,913 @@
+/* ===========================================================
+   App Inatel — Eventos
+   Identidade visual: azul institucional #1A3A5C
+=========================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f3f3f1;
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  min-height: 100vh;
+}
+
+:root {
+  --azul-inatel: #1A3A5C;
+  --azul-claro: #E8EEF5;
+  --azul-medio: #C8D8E8;
+  --texto-secundario: #6b6b6b;
+  --texto-terciario: #9a9a9a;
+  --borda: #e3e3e3;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+}
+
+/* ============ FRAME DO TELEFONE ============ */
+.phone-frame {
+  width: 360px;
+  background: #fff;
+  border-radius: 36px;
+  border: 2px solid #1f1f1f;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  min-height: 720px;
+}
+
+/* ============ TELAS (uma visível por vez) ============ */
+.tela {
+  display: none;
+  flex-direction: column;
+  min-height: 720px;
+}
+
+.tela.ativa {
+  display: flex;
+}
+
+/* ============ STATUS BAR ============ */
+.status-bar {
+  background: var(--azul-inatel);
+  padding: 12px 22px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-bar span {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ============ HERO (tela início) ============ */
+.hero {
+  background: var(--azul-inatel);
+  padding: 14px 18px 22px;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.hero-greeting {
+  color: rgba(255,255,255,0.7);
+  font-size: 12px;
+}
+
+.hero-name {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-actions .ti-bell {
+  font-size: 21px;
+  color: #fff;
+}
+
+.hero-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.hero-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-card-icon .ti {
+  font-size: 18px;
+  color: #fff;
+}
+
+.hero-card-text {
+  color: #fff;
+}
+
+.hero-card-label {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 2px;
+}
+
+.hero-card-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.hero-card-meta {
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ============ TOPBAR (telas eventos / salvos / perfil) ============ */
+.topbar {
+  background: var(--azul-inatel);
+  padding: 14px 18px 16px;
+}
+
+.topbar-title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.search {
+  background: rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  padding: 9px 13px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.search .ti-search {
+  font-size: 16px;
+  color: rgba(255,255,255,0.75);
+}
+
+.search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 13.5px;
+  width: 100%;
+}
+
+.search input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ============ CHIPS DE FILTRO ============ */
+.chips {
+  display: flex;
+  gap: 9px;
+  padding: 14px 18px 6px;
+  overflow-x: auto;
+}
+
+.chip {
+  font-size: 12.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--azul-inatel);
+  color: var(--azul-inatel);
+  white-space: nowrap;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.chip.ativo {
+  background: var(--azul-inatel);
+  color: #fff;
+}
+
+.chip:hover:not(.ativo) {
+  background: var(--azul-claro);
+}
+
+/* ============ SECTION LABEL ============ */
+.section-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--texto-secundario);
+  padding: 14px 18px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-label a {
+  font-size: 11.5px;
+  color: var(--azul-inatel);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ============ ACESSO RÁPIDO (grid) ============ */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px;
+  padding: 0 14px 6px;
+}
+
+.quick-card {
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: box-shadow 0.15s, transform 0.1s;
+}
+
+.quick-card:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.quick-card:active {
+  transform: scale(0.98);
+}
+
+.quick-card-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: var(--azul-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.quick-card-icon .ti {
+  font-size: 17px;
+  color: var(--azul-inatel);
+}
+
+.quick-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 3px;
+}
+
+.quick-card-sub {
+  font-size: 11.5px;
+  color: var(--texto-secundario);
+}
+
+/* ============ CARD DE EVENTO — DESTAQUE ============ */
+.event-card {
+  margin: 0 14px 12px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+.event-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.event-banner {
+  height: 80px;
+  background: var(--azul-medio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--azul-inatel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-icon .ti {
+  font-size: 21px;
+  color: #fff;
+}
+
+.event-body {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.event-tag {
+  font-size: 11px;
+  background: var(--azul-claro);
+  color: var(--azul-inatel);
+  border-radius: 4px;
+  padding: 2px 9px;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.event-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 7px;
+  line-height: 1.35;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11.5px;
+  color: var(--texto-secundario);
+}
+
+.event-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ============ CARD DE EVENTO — COMPACTO ============ */
+.event-card-sm {
+  margin: 0 14px 10px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 11px 14px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+.event-card-sm:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.event-card-sm-info .tag {
+  font-size: 11px;
+  background: var(--azul-claro);
+  color: var(--azul-inatel);
+  border-radius: 4px;
+  padding: 2px 9px;
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.event-card-sm-info .title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.event-card-sm-info .meta {
+  font-size: 11.5px;
+  color: var(--texto-secundario);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ============ BOTÃO SALVAR (coração) ============ */
+.btn-heart {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 19px;
+  color: var(--texto-terciario);
+  padding: 2px;
+  line-height: 1;
+  transition: color 0.15s, transform 0.1s;
+  flex-shrink: 0;
+}
+
+.btn-heart.salvo {
+  color: #e0455f;
+}
+
+.btn-heart:active {
+  transform: scale(0.85);
+}
+
+.btn-heart .ti-heart-filled {
+  display: none;
+}
+
+.btn-heart.salvo .ti-heart {
+  display: none;
+}
+
+.btn-heart.salvo .ti-heart-filled {
+  display: inline;
+}
+
+/* ============ LINHA DE EVENTO (tela início) ============ */
+.event-row {
+  margin: 0 14px 9px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 11px 14px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+.event-row:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.event-row-left .tag {
+  font-size: 10.5px;
+  background: var(--azul-claro);
+  color: var(--azul-inatel);
+  border-radius: 4px;
+  padding: 1px 8px;
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.event-row-left .title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.event-row-left .meta {
+  font-size: 11.5px;
+  color: var(--texto-secundario);
+  margin-top: 3px;
+}
+
+.event-row-date {
+  text-align: center;
+  background: var(--azul-claro);
+  border-radius: var(--radius-md);
+  padding: 7px 11px;
+  flex-shrink: 0;
+}
+
+.event-row-date .day {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--azul-inatel);
+  line-height: 1;
+}
+
+.event-row-date .month {
+  font-size: 10px;
+  color: var(--azul-inatel);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ============ ESTADO VAZIO ============ */
+.estado-vazio {
+  margin: 24px 18px;
+  text-align: center;
+  color: var(--texto-terciario);
+  padding: 30px 16px;
+  border: 1px dashed var(--borda);
+  border-radius: var(--radius-lg);
+}
+
+.estado-vazio .ti {
+  font-size: 32px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.estado-vazio p {
+  font-size: 12.5px;
+}
+
+/* ============ PERFIL PLACEHOLDER ============ */
+.perfil-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  color: var(--texto-terciario);
+}
+
+.perfil-placeholder .ti {
+  font-size: 48px;
+  margin-bottom: 14px;
+}
+
+.perfil-placeholder p {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* ============ BOTTOM NAV ============ */
+.bottom-nav {
+  margin-top: auto;
+  border-top: 1px solid var(--borda);
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 18px;
+  background: #fff;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  color: var(--texto-terciario);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 4px 8px;
+}
+
+.nav-item .ti {
+  font-size: 21px;
+}
+
+.nav-item.ativo {
+  color: var(--azul-inatel);
+}
+
+.nav-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--azul-inatel);
+  margin-top: -2px;
+}
+
+/* ============ TOPBAR SUB (salvos) ============ */
+.topbar-sub {
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* ============ CARDS DE SALVOS ============ */
+.saved-card {
+  margin: 0 14px 10px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-lg);
+  padding: 12px 14px;
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.saved-card-date {
+  background: var(--azul-claro);
+  border-radius: var(--radius-md);
+  padding: 8px 10px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.saved-card-date .day {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--azul-inatel);
+  line-height: 1;
+}
+
+.saved-card-date .month {
+  font-size: 10px;
+  color: var(--azul-inatel);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.saved-card-info {
+  flex: 1;
+}
+
+.saved-card-info .tag {
+  font-size: 10.5px;
+  background: var(--azul-claro);
+  color: var(--azul-inatel);
+  border-radius: 4px;
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.saved-card-info .title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 3px;
+}
+
+.saved-card-info .meta {
+  font-size: 11.5px;
+  color: var(--texto-secundario);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.saved-card-info .meta.sympla {
+  color: var(--azul-inatel);
+  font-weight: 500;
+}
+
+.saved-card-heart {
+  font-size: 20px;
+  color: #e0455f;
+  flex-shrink: 0;
+}
+
+/* ============ TOPBAR DETALHE ============ */
+.topbar-detail {
+  background: var(--azul-inatel);
+  padding: 10px 18px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-back {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-back .ti {
+  font-size: 16px;
+  color: #fff;
+}
+
+.topbar-detail-title {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ============ HERO BANNER (detalhe) ============ */
+.hero-banner {
+  height: 110px;
+  background: linear-gradient(135deg, #C8D8E8, #a8c0d8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--azul-inatel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-icon .ti {
+  font-size: 26px;
+  color: #fff;
+}
+
+/* ============ CORPO DO DETALHE ============ */
+.detail-body {
+  padding: 16px 18px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.detail-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+.detail-info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+  color: #4a4a4a;
+  font-size: 13px;
+}
+
+.detail-info-row .ti {
+  font-size: 16px;
+  color: var(--azul-inatel);
+  flex-shrink: 0;
+}
+
+.detail-divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 14px 0;
+}
+
+.detail-desc-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--texto-terciario);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 6px;
+}
+
+.detail-desc {
+  font-size: 13px;
+  color: #4a4a4a;
+  line-height: 1.55;
+}
+
+/* badge sem inscrição */
+.badge-no-inscricao {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f5f0;
+  border: 1px solid #c6ddc6;
+  color: #2e6e2e;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  margin-top: 14px;
+  width: 100%;
+}
+
+/* barra de vagas */
+.vagas-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  font-size: 12.5px;
+  color: var(--texto-secundario);
+}
+
+.vagas-row strong {
+  color: var(--azul-inatel);
+}
+
+.vagas-bar {
+  height: 5px;
+  background: var(--azul-claro);
+  border-radius: 3px;
+  margin-top: 6px;
+}
+
+.vagas-fill {
+  height: 5px;
+  background: var(--azul-inatel);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* botões de ação no detalhe */
+.btn-sympla {
+  width: 100%;
+  margin-top: 16px;
+  padding: 13px;
+  border-radius: 12px;
+  border: none;
+  background: var(--azul-inatel);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+
+.btn-sympla:hover { opacity: 0.88; }
+
+.btn-save-detalhe {
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  border-radius: 12px;
+  border: 1.5px solid var(--azul-inatel);
+  background: #fff;
+  color: var(--azul-inatel);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-save-detalhe.salvo {
+  background: #fff0f3;
+  border-color: #e0455f;
+  color: #e0455f;
+}
+
+.sympla-note {
+  font-size: 11px;
+  color: var(--texto-terciario);
+  text-align: center;
+  margin-top: 8px;
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Inatel — Eventos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="phone-frame">
+
+    <!-- ============INÍCIO============ -->
+    <section id="tela-inicio" class="tela ativa">
+
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>●●● 100%</span>
+      </div>
+
+      <div class="hero">
+        <div class="hero-top">
+          <div>
+            <div class="hero-greeting">bom dia,</div>
+            <div class="hero-name">Pedro Alves</div>
+          </div>
+          <div class="hero-actions">
+            <i class="ti ti-bell" aria-hidden="true"></i>
+            <div class="hero-avatar">PA</div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-icon">
+            <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          </div>
+          <div class="hero-card-text">
+            <div class="hero-card-label">próximo evento salvo</div>
+            <div class="hero-card-title">Workshop: Dev Mobile</div>
+            <div class="hero-card-meta"><i class="ti ti-clock" aria-hidden="true"></i> hoje · 14h · Lab 3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-label">
+        <span>acesso rápido</span>
+      </div>
+
+      <div class="quick-grid">
+        <button class="quick-card" data-nav="tela-eventos">
+          <div class="quick-card-icon">
+            <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          </div>
+          <div class="quick-card-title">Eventos</div>
+          <div class="quick-card-sub" id="contador-eventos">3 esta semana</div>
+        </button>
+        <button class="quick-card" data-nav="tela-salvos">
+          <div class="quick-card-icon">
+            <i class="ti ti-heart" aria-hidden="true"></i>
+          </div>
+          <div class="quick-card-title">Salvos</div>
+          <div class="quick-card-sub" id="contador-salvos">2 eventos</div>
+        </button>
+      </div>
+
+      <div class="section-label">
+        <span>em breve</span>
+        <a href="#" data-nav="tela-eventos">ver todos</a>
+      </div>
+
+      <div id="lista-em-breve">
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item ativo" data-nav="tela-inicio">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <span class="nav-dot"></span>
+          <span>início</span>
+        </button>
+        <button class="nav-item" data-nav="tela-eventos">
+          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span>eventos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-salvos">
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span>salvos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-perfil">
+          <i class="ti ti-user" aria-hidden="true"></i>
+          <span>perfil</span>
+        </button>
+      </nav>
+
+    </section>
+
+    <!-- ============TELA: EVENTOS============ -->
+    <section id="tela-eventos" class="tela">
+
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>●●● 100%</span>
+      </div>
+
+      <div class="topbar">
+        <div class="topbar-title">Eventos</div>
+        <div class="search">
+          <i class="ti ti-search" aria-hidden="true"></i>
+          <input type="text" id="campo-busca" placeholder="buscar eventos...">
+        </div>
+      </div>
+
+      <div class="chips" id="lista-chips">
+        <button class="chip ativo" data-categoria="Todos">Todos</button>
+        <button class="chip" data-categoria="Palestra">Palestra</button>
+        <button class="chip" data-categoria="Workshop">Workshop</button>
+        <button class="chip" data-categoria="Hackathon">Hackathon</button>
+      </div>
+
+      <div id="resultado-eventos">
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" data-nav="tela-inicio">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <span>início</span>
+        </button>
+        <button class="nav-item ativo" data-nav="tela-eventos">
+          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span class="nav-dot"></span>
+          <span>eventos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-salvos">
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span>salvos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-perfil">
+          <i class="ti ti-user" aria-hidden="true"></i>
+          <span>perfil</span>
+        </button>
+      </nav>
+
+    </section>
+
+    <!-- ============SALVOS============ -->
+    <section id="tela-salvos" class="tela">
+
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>●●● 100%</span>
+      </div>
+
+      <div class="topbar">
+        <div class="topbar-title">Meus Salvos</div>
+        <div class="topbar-sub" id="sub-salvos">0 eventos guardados</div>
+      </div>
+
+      <div id="lista-salvos" style="flex:1; overflow-y:auto;">
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" data-nav="tela-inicio">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <span>início</span>
+        </button>
+        <button class="nav-item" data-nav="tela-eventos">
+          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span>eventos</span>
+        </button>
+        <button class="nav-item ativo" data-nav="tela-salvos">
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span class="nav-dot"></span>
+          <span>salvos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-perfil">
+          <i class="ti ti-user" aria-hidden="true"></i>
+          <span>perfil</span>
+        </button>
+      </nav>
+
+    </section>
+
+    <!-- ============PERFIL============ -->
+    <section id="tela-perfil" class="tela">
+
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>●●● 100%</span>
+      </div>
+
+      <div class="topbar">
+        <div class="topbar-title">Perfil</div>
+      </div>
+
+      <div class="perfil-placeholder">
+        <i class="ti ti-user-circle" aria-hidden="true"></i>
+        <p>Tela de perfil ainda não implementada.</p>
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" data-nav="tela-inicio">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <span>início</span>
+        </button>
+        <button class="nav-item" data-nav="tela-eventos">
+          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span>eventos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-salvos">
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span>salvos</span>
+        </button>
+        <button class="nav-item ativo" data-nav="tela-perfil">
+          <i class="ti ti-user" aria-hidden="true"></i>
+          <span class="nav-dot"></span>
+          <span>perfil</span>
+        </button>
+      </nav>
+
+    </section>
+
+    <!-- ============DETALHE DO EVENTO============ -->
+    <section id="tela-detalhe" class="tela">
+
+      <div class="status-bar">
+        <span>9:42</span>
+        <span>●●● 100%</span>
+      </div>
+
+      <div class="topbar-detail">
+        <button class="btn-back" id="btn-voltar" aria-label="Voltar">
+          <i class="ti ti-arrow-left" aria-hidden="true"></i>
+        </button>
+        <div class="topbar-detail-title">Detalhe do evento</div>
+      </div>
+
+      <div class="hero-banner" id="detalhe-banner">
+        <div class="hero-icon" id="detalhe-icon">
+          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="detail-body" id="detalhe-body">
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" data-nav="tela-inicio">
+          <i class="ti ti-home" aria-hidden="true"></i>
+          <span>início</span>
+        </button>
+        <button class="nav-item ativo" data-nav="tela-eventos">
+          <i class="ti ti-calendar-event" aria-hidden="true"></i>
+          <span class="nav-dot"></span>
+          <span>eventos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-salvos">
+          <i class="ti ti-heart" aria-hidden="true"></i>
+          <span>salvos</span>
+        </button>
+        <button class="nav-item" data-nav="tela-perfil">
+          <i class="ti ti-user" aria-hidden="true"></i>
+          <span>perfil</span>
+        </button>
+      </nav>
+
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
